@@ -15,6 +15,7 @@ class Home extends CI_Model
 			return FALSE;
 		}
 	}
+
 	public function connexion($id, $pass){
 		$query= $this->db->query('SELECT * FROM compte WHERE Nom_Us = \''.$id.'\' AND Pass_Us = \''.$pass.'\';');
 		echo $query->num_rows();
