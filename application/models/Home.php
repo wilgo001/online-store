@@ -2,9 +2,16 @@
 
 class Home extends CI_Model
 {
+
+	private $nom_user;
+
 	public function __construct()
 	{
 		$this->load->database();
+	}
+
+	public function getNom() {
+		return $this->nom_user;
 	}
 
 	public function get_reviews($id) {
@@ -20,6 +27,7 @@ class Home extends CI_Model
 		$query= $this->db->query('SELECT * FROM compte WHERE Nom_Us = \''.$id.'\' AND Pass_Us = \''.$pass.'\';');
 		echo $query->num_rows();
     	if($query->num_rows() <= 0){
+    		$this->nom_user = $id;
     		return false;
     	}
     	else{
@@ -30,8 +38,9 @@ class Home extends CI_Model
 
 	public function inscription($id, $pass){
 		$data= array(
-			$id => ':Nom_Us',
-			$pass => ':Pass_Us'
+			'Nom_Us' => $id,
+			'Pass_Us' => $pass,
+			'Id_Us' => $this->db->count_all('compte') + 1
 		);
 
 		$this->db->insert('compte', $data);
