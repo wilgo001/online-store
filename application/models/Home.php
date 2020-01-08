@@ -26,4 +26,16 @@ class Home extends CI_Model
     	}
     	
 	}
+
+	public function inscription($id, $pass){
+		$data= array(
+			$id => ':Nom_Us',
+			$pass => ':Pass_Us'
+		);
+
+		$this->db->insert('compte', $data);
+
+		return $this->connexion($id, $pass);
+
+	}
 }
