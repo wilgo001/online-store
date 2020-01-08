@@ -37,6 +37,5 @@ class Home extends CI_Model
 
 		return $this->connexion($id, $pass);
 
-
 	}
 }
