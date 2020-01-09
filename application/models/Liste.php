@@ -17,10 +17,12 @@ class Liste extends CI_Model
 		//il faut récupérer le nombre de listes
 
 		//$query= $this->db->query('SELECT * FROM liste INNER JOIN acces ON Liste.Id_Li = acces.Id_Li WHERE acces.Id_Us = \''.$id_us.'\';');
-
-
-		$query = $this->db->count_all_results('liste INNER JOIN acces ON Liste.Id_Li = acces.Id_Li', FALSE)->where('Id_Us', $id_us);
-
+		
+		$this->db->select("*");
+		$this->db->from("liste")
+		$this->db->join("acces", "liste.Id_Li = acces.Id_Li");
+		$this->db->where("name", $id_us);
+		$query = $this->db->count_all_results();
 		return $query;
 
 	}
