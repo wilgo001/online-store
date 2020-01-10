@@ -3,8 +3,6 @@
 class Home extends CI_Model
 {
 
-	private $nom_user;
-
 	public function __construct()
 	{
 		$this->load->database();
@@ -27,7 +25,7 @@ class Home extends CI_Model
 		$query= $this->db->query('SELECT * FROM compte WHERE Nom_Us = \''.$id.'\' AND Pass_Us = \''.$pass.'\';');
 		echo $query->num_rows();
     	if($query->num_rows() <= 0){
-    		$this->nom_user = $id;
+    		$this->session->set_userdata('pseudo', $id);
     		return false;
     	}
     	else{

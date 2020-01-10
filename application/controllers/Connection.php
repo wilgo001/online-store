@@ -3,7 +3,7 @@
 class Connection extends CI_Controller
 {
 
-	public function show() {
+	public function index() {
 		$this->load->view('welcome_message');
 	}
 
@@ -13,7 +13,12 @@ class Connection extends CI_Controller
 			$login = filter_var ($_POST["login"], FILTER_SANITIZE_STRING);
 			$pass = filter_var ($_POST["password"], FILTER_SANITIZE_STRING);
 			if ($this->home->connexion($login, $pass)) {
+				$this->load->model('liste');
 				$this->load->view('accueil');
+				$this->load->library('session');
+				$nb = $this->liste->countListe($this->session->userdata('pseudo'));
+				echo $this->session->userdata('pseudo');
+				echo'<p>nb de listes : '.$nb.'</p>';
 			}
 		}
 	}

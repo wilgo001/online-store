@@ -1,6 +1,6 @@
 <?php
 echo'
-<form action="creationListe.php" method="post">
+<form action="../../index.php/gestion_list/ajout.html" method="post">
 			<p>
 				CRÉATION DE LISTE :<br>
 				<input type="text" name="nomListe" placeholder="nom de la liste" /><br>
@@ -11,4 +11,9 @@ echo'
 </form>';
 
 function afficherListe($nomListe, $date, $description){
-	echo'<p> nom de la liste : '.$nomListe.'<br>date : '.$date.' <br> description : '.$description.'<br>'.'<input type="checkbox" value="valider">'.'</p>';}
+	echo'<p> nom de la liste : '.$nomListe.'<br>date : '.$date.' <br> description : '.$description.'<br>'.'<input type="checkbox" value="valider">'.'</p>';
+}
+
+function afficherNbListe($nbListe) {
+	echo'<p>nb de listes : '.$nbListe.'</p>';
+}

@@ -7,14 +7,14 @@ echo'
 	<title>SITE</title>
 </head>
 <body>
-<form method="post" action="../../index.php/connection/connect">
+<form method="post" action="../../index.php/connection/connect.html">
 	Login : <input type="text" name="login"><br>
 	Pass : <input type="password" name="password"><br>
 	<input type="submit" value="Se connecter">
 </form>
 
 
-<form method="post" action="../../index.php/connection/inscription">
+<form method="post" action="../../index.php/connection/inscription.html">
     Login : <input type="text" name="login"><br/>
     Password : <input type="password" name="password1"><br/>
     Confirm Password : <input type="password" name="password2"><br/>
